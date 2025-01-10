@@ -150,6 +150,20 @@ class Square(Shape):
     def show(self):
         return super().show() + f':{self.side_len}'
 
+    @staticmethod
+    def load():
+        with open('Shapes') as file:
+            flag = False
+            for x in file.readlines():
+                if "square" in x:
+                    x = x[:-1]
+                    x = x.split(":")
+                    print(f"Figure name is {x[0]} with the coordinates of the upper left corner {x[1]}:{x[2]} and "
+                          f"the length of the side = {x[3]}")
+                    flag = True
+            if not flag:
+                print('No squares in data!')
+
 
 class Rectangle(Shape):
     def __init__(self, x1, y1, side1_len, side2_len):
@@ -161,6 +175,20 @@ class Rectangle(Shape):
     def show(self):
         return super().show() + f':{self.side1_len}:{self.side2_len}'
 
+    @staticmethod
+    def load():
+        with open('Shapes') as file:
+            flag = False
+            for x in file.readlines():
+                if "rectangle" in x:
+                    x = x[:-1]
+                    x = x.split(":")
+                    print(f"Figure name is {x[0]} with the coordinates of the upper left corner {x[1]}:{x[2]} and "
+                          f"the length of the first side = {x[3]} and second side = {x[4]}")
+                    flag = True
+            if not flag:
+                print('No rectangles in data!')
+
 
 class Circle(Shape):
     def __init__(self, x1, y1, radius):
@@ -170,6 +198,20 @@ class Circle(Shape):
 
     def show(self):
         return super().show() + f':{self.radius}'
+
+    @staticmethod
+    def load():
+        with open('Shapes') as file:
+            flag = False
+            for x in file.readlines():
+                if "circle" in x:
+                    x = x[:-1]
+                    x = x.split(":")
+                    print(f"Figure name is {x[0]} with the coordinates of the center {x[1]}:{x[2]} and "
+                          f"the length of the radius = {x[3]}")
+                    flag = True
+            if not flag:
+                print('No circles in data!')
 
 
 class Ellipse(Shape):
@@ -184,6 +226,21 @@ class Ellipse(Shape):
     def show(self):
         return super().show() + f':{self.x2}:{self.y2}:{self.side1_len}:{self.side2_len}'
 
+    @staticmethod
+    def load():
+        with open('Shapes') as file:
+            flag = False
+            for x in file.readlines():
+                if "ellipse" in x:
+                    x = x[:-1]
+                    x = x.split(":")
+                    print(f"Figure name is {x[0]} with the coordinates of the center {x[1]}:{x[2]} and"
+                          f" the upper left corner {x[3]}:{x[4]} and "
+                          f"the length of the first side = {x[5]} and second side = {x[6]}")
+                    flag = True
+            if not flag:
+                print('No ellipses in data!')
+
 
 figure1 = Shape(0, 0)
 figure1.save()
@@ -193,6 +250,6 @@ figure3 = Rectangle(2, 2, 4, 2)
 figure3.save()
 figure4 = Circle(1, 1, 3)
 figure4.save()
-figure5 = Ellipse(0, 0, 2, 3, 4, 6)
-figure5.save()
 Shape.load()
+Square.load()
+Ellipse.load()

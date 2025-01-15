@@ -207,3 +207,17 @@ try:
             pass
 except Exception as ex:
     print(ex)
+
+
+class ValidationMetaABC(ValidationMeta, ABC):
+    pass
+
+
+try:
+    class ValidatedClass5(metaclass=ValidationMetaABC):
+        description = "2"
+
+        def do_task(self):
+            pass
+except Exception as ex:
+    print(ex)

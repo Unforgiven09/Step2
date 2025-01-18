@@ -1,0 +1,3 @@
+We have some error: 2025-01-18 09:50:06,936 : ERROR : test_factorial_float : Use int nums only
+We have some error: 2025-01-18 09:50:06,937 : ERROR : test_factorial_less_0 : Use positive nums only
+We have some error: 2025-01-18 09:50:06,937 : ERROR : test_factorial_float : Use int nums only

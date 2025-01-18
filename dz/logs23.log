@@ -1,0 +1,7 @@
+We have some error: 2025-01-18 09:17:01,066 : ERROR : test_division : Division to ZERO alarm!
+We have some error: 2025-01-18 09:17:01,066 : ERROR : test_more_args : Func need 2 args!
+We have some error: 2025-01-18 09:17:01,066 : ERROR : test_one_arg : Func need 2 args!
+We have some error: 2025-01-18 09:17:01,066 : ERROR : test_wrong_kwargs0 : Func need only 1 kwarg!
+We have some error: 2025-01-18 09:17:01,066 : ERROR : test_wrong_kwargs1 : Func need kwarg with value like '+', '-', '*', '/', 'min', 'max', '%', '**'!
+We have some error: 2025-01-18 09:17:01,067 : ERROR : test_wrong_kwargs2 : Func need only 1 kwarg!
+We have some error: 2025-01-18 09:17:01,067 : ERROR : test_zero_args : Func need 2 args!

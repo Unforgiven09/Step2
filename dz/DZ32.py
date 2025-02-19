@@ -146,7 +146,7 @@ connection.close()
 # Відображення усіх овочів та фруктів, у короткому описі яких є вказане слово. Наприклад, слово: гемоглобін.
 # Показати усі овочі та фрукти жовтого або червоного кольору.
 
-connection2 = sqlite3.connect('LES31-2.db')
+connection2 = sqlite3.connect('DZ32.db')
 cursor2 = connection2.cursor()
 
 cursor2.execute('''

@@ -1,3 +1,4 @@
+import random
 import sqlite3
 
 # connection = sqlite3.connect('LES31-1.db')
@@ -47,16 +48,53 @@ import sqlite3
 
 connection = sqlite3.connect('LES31-2.db')
 cursor = connection.cursor()
+#
+# cursor.execute('''
+# CREATE TABLE IF NOT EXISTS vegs_fruits(
+#     name TEXT NOT NULL,
+#     type TEXT CHECK (type = 'vegetables' OR type = 'fruits'),
+#     colour TEXT NOT NULL,
+#     calories INTEGER NOT NULL,
+#     description TEXT NOT NULL
+# );
+# ''')
 
-cursor.execute('''
-CREATE TABLE IF NOT EXISTS vegs_fruits(
-    name TEXT NOT NULL,
-    type TEXT CHECK (type = 'vegetables' OR type = 'fruits'),
-    colour TEXT NOT NULL,
-    calories INTEGER NOT NULL,
-    description TEXT NOT NULL
-);
-''')
+# cursor.executemany(f'''INSERT INTO vegs_fruits (name, type, colour, calories, description) VALUES (?, ?, ?, ?, ?)''',
+#                    [('apple', 'fruits', 'red', 100, 'red apple'),
+#                     ('cherry', 'fruits', 'red', 200, 'red cherry'),
+#                     ('orange', 'fruits', 'yellow', 150, 'yellow orange'),
+#                     ('cucumber', 'vegetables', 'green', 400, 'green cucumber'),
+#                     ('tomato', 'vegetables', 'red', 90, 'red tomato'),
+#                     ('cabbage', 'vegetables', 'green', 3000, 'green cabbage')])
+# Відображення всієї інформації з таблиці овочів та фруктів;
+# Відображення усіх овочів;
+# Відображення усіх фруктів;
+# Відображення усіх назв овочів та фруктів;
+# Відображення усіх кольорів. Кольори мають бути унікальними;
+# Відображення фруктів певного кольору;
+# Відображення овочів певного кольору.
+
+cursor.execute('SELECT * FROM vegs_fruits')
+v_f = cursor.fetchall()
+print(*v_f)
+cursor.execute("SELECT * FROM vegs_fruits WHERE type = 'vegetables'")
+vegs = cursor.fetchall()
+print(vegs)
+cursor.execute("SELECT * FROM vegs_fruits WHERE type = 'fruits'")
+fruits = cursor.fetchall()
+print(fruits)
+cursor.execute("SELECT name FROM vegs_fruits")
+names = cursor.fetchall()
+print(names)
+cursor.execute("SELECT DISTINCT colour FROM vegs_fruits ")
+colours = cursor.fetchall()
+print(colours)
+cursor.execute("SELECT * FROM vegs_fruits WHERE colour = 'red' AND type = 'fruits'")
+colour_red = cursor.fetchall()
+print(colour_red)
+cursor.execute("SELECT * FROM vegs_fruits WHERE colour = 'red' AND type = 'vegetables'")
+colour_vegs = cursor.fetchall()
+print(colour_vegs)
 
 connection.commit()
 connection.close()

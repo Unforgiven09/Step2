@@ -159,6 +159,7 @@ CREATE TABLE IF NOT EXISTS vegs_fruits(
 );
 ''')
 
+
 # cursor2.executemany('''INSERT INTO vegs_fruits (name, type, colour, calories, description) VALUES (?, ?, ?, ?, ?)''',
 # [("Apple", "fruit", "red", 52, "A sweet and crunchy fruit, rich in fiber and vitamins."),
 # ("Banana", "fruit", "yellow", 89, "A soft, sweet fruit high in potassium."),
